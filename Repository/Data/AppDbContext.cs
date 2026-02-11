@@ -12,7 +12,7 @@ namespace Repository.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=LibraryApp;Trusted_Connection=True;TrustServerCertificate=True;");
+            optionsBuilder.UseSqlServer("Server=WIN-AK9NHEFC1NV;Database=LibraryAppDB;Trusted_Connection=True;TrustServerCertificate=True;");
         }
     }
 }

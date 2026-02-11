@@ -10,7 +10,7 @@ namespace Service.Services
     public class BookService : IBookService
     {
         private readonly IBookRepository _bookRepository;
-        private readonly Book book;
+
         public BookService()
         {
             _bookRepository = new BookRepository();
@@ -23,7 +23,8 @@ namespace Service.Services
         public async Task DeleteAsync(int id)
         {
             var book = await _bookRepository.GetByIdAsync(id);
-            _bookRepository.DeleteAsync(book);
+            if (book != null)
+                await _bookRepository.DeleteAsync(book);
         }
 
         public async Task<IEnumerable<Book>> GetAllAsync()
@@ -39,7 +40,6 @@ namespace Service.Services
         public async Task<IEnumerable<Book>> SearchByName(string searchText)
         {
            return  await _bookRepository.SearchByCondition(m=>m.Name.Contains(searchText));
-          
         }
     }
 }
