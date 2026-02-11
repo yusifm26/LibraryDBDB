@@ -4,6 +4,7 @@ using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Repository.Data;
 using Repository.Repositories.Interfaces;
+using System.Linq.Expressions;
 
 namespace Repository.Repositories
 {
@@ -36,6 +37,11 @@ namespace Repository.Repositories
         public async Task<T> GetByIdAsync(int id)
         {
             return await _dbset.FirstOrDefaultAsync(m => m.Id == id);
+        }
+
+        public async Task<IEnumerable<T>> SearchByCondition(Expression<Func<T, bool>> predicate)
+        {
+            return await _dbset.Where(predicate).ToListAsync();
         }
     }
 }

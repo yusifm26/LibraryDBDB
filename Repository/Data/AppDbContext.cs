@@ -12,7 +12,7 @@ namespace Repository.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=MOON12\\SQLEXPRESS;Database=LibraryApp;Trusted_Connection=True;TrustServerCertificate=True;");
+            optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=LibraryApp;Trusted_Connection=True;TrustServerCertificate=True;");
         }
     }
 }

@@ -11,7 +11,7 @@ using Repository.Data;
 namespace Repository.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260211080027_CreatedTables")]
+    [Migration("20260211112720_CreatedTables")]
     partial class CreatedTables
     {
         /// <inheritdoc />
